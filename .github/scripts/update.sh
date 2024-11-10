@@ -6,7 +6,7 @@ sonarr() {
   local new_version=$(curl -sSL ${sonarr_url} | jq -r "first(.[] | select(.releasechannel==\"${sonarr_channel}\") | .version)")
 
   if [ "${new_version}" ]; then
-    sed -i "s/sonarr_version=.*/sonarr_version=${new_version}/" sonarr/Dockerfile
+    sed -i "s/sonarr_version=.*/sonarr_version=${new_version}/" Dockerfile
   fi
 
   if output=$(git status --porcelain) && [ -z "$output" ]; then
