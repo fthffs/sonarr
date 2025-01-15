@@ -1,5 +1,5 @@
 # Build
-FROM debian:12.7-slim as builder
+FROM debian:12.9-slim as builder
 
 ARG SONARR_VERSION=4.0.10.2544
 
@@ -16,7 +16,7 @@ RUN set -eux; \
   | tar xzf - -C /app/sonarr --strip-components=1; \
   rm -rf /app/sonarr/Sonarr.Update
 
-FROM debian:12.7-slim
+FROM debian:12.9-slim
 COPY --from=builder --chown=docker:docker /app/sonarr /app
 
 # Install binaries
