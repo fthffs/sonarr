@@ -12,7 +12,7 @@ jobs:
     permissions:
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Checkout repo, grab sonarr version
         id: getVersion
         run: echo "SONARR_VERSION=$(grep -o -m 1 'SONARR_VERSION=.*' Dockerfile | awk -F '=' '{print $2}')" >> $GITHUB_ENV
